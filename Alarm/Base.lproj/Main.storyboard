@@ -59,7 +59,52 @@
                     <view key="view" contentMode="scaleToFill" id="osr-ld-Fjq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9b-Lb-fmh">
+                                <rect key="frame" x="20" y="76" width="40" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Rjf-E5-oUr"/>
+                                    <constraint firstAttribute="height" constant="34" id="vCV-8v-Wsk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nM7-2l-4pS">
+                                <rect key="frame" x="20" y="128" width="40" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="KGe-ha-XEL"/>
+                                    <constraint firstAttribute="height" constant="34" id="ZK8-f3-Mjq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qvC-D4-9ag">
+                                <rect key="frame" x="80" y="76" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zpm-Ln-ovi">
+                                <rect key="frame" x="80" y="128" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zpm-Ln-ovi" firstAttribute="leading" secondItem="nM7-2l-4pS" secondAttribute="trailing" constant="20" id="AL5-O5-SaO"/>
+                            <constraint firstItem="b9b-Lb-fmh" firstAttribute="top" secondItem="Yif-c6-agJ" secondAttribute="top" constant="20" id="FpE-pt-cMZ"/>
+                            <constraint firstItem="zpm-Ln-ovi" firstAttribute="trailing" secondItem="qvC-D4-9ag" secondAttribute="trailing" id="G22-9u-kFf"/>
+                            <constraint firstItem="b9b-Lb-fmh" firstAttribute="leading" secondItem="Yif-c6-agJ" secondAttribute="leading" constant="20" id="Os0-4e-qFD"/>
+                            <constraint firstItem="qvC-D4-9ag" firstAttribute="top" secondItem="b9b-Lb-fmh" secondAttribute="top" id="V2D-ZR-UtO"/>
+                            <constraint firstItem="qvC-D4-9ag" firstAttribute="leading" secondItem="b9b-Lb-fmh" secondAttribute="trailing" constant="20" id="a9c-Ex-nI0"/>
+                            <constraint firstItem="nM7-2l-4pS" firstAttribute="leading" secondItem="b9b-Lb-fmh" secondAttribute="leading" id="bhB-68-HeF"/>
+                            <constraint firstItem="zpm-Ln-ovi" firstAttribute="top" secondItem="nM7-2l-4pS" secondAttribute="top" id="dKs-b2-Tpu"/>
+                            <constraint firstItem="nM7-2l-4pS" firstAttribute="trailing" secondItem="b9b-Lb-fmh" secondAttribute="trailing" id="k1t-6s-08y"/>
+                            <constraint firstItem="Yif-c6-agJ" firstAttribute="trailing" secondItem="qvC-D4-9ag" secondAttribute="trailing" constant="20" id="pKY-5G-I5Y"/>
+                            <constraint firstItem="nM7-2l-4pS" firstAttribute="top" secondItem="b9b-Lb-fmh" secondAttribute="bottom" constant="18" id="tNR-yK-m7I"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Yif-c6-agJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Creating Alarm" id="Bgb-ic-Ou0">
@@ -74,6 +119,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="timeTextField" destination="zpm-Ln-ovi" id="UpA-sR-it7"/>
+                        <outlet property="titleTextField" destination="qvC-D4-9ag" id="i06-n3-ddz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jZ-GH-uB2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

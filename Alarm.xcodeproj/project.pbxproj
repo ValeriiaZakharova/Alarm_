@@ -14,6 +14,7 @@
 		CF4094CD24507D6000487DC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF4094CC24507D6000487DC7 /* Assets.xcassets */; };
 		CF4094D024507D6000487DC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF4094CE24507D6000487DC7 /* LaunchScreen.storyboard */; };
 		CF4094D92450804900487DC7 /* CreateAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4094D82450804900487DC7 /* CreateAlarmViewController.swift */; };
+		CF4094DB24508CB900487DC7 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4094DA24508CB900487DC7 /* AlarmModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CF4094CF24507D6000487DC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF4094D124507D6000487DC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF4094D82450804900487DC7 /* CreateAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlarmViewController.swift; sourceTree = "<group>"; };
+		CF4094DA24508CB900487DC7 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				CF4094C324507D5D00487DC7 /* AppDelegate.swift */,
 				CF4094C524507D5D00487DC7 /* SceneDelegate.swift */,
+				CF4094DC24508CC000487DC7 /* AlarmModel */,
 				CF4094D724507F8500487DC7 /* ViewControllers */,
 				CF4094C924507D5D00487DC7 /* Main.storyboard */,
 				CF4094CC24507D6000487DC7 /* Assets.xcassets */,
@@ -76,6 +79,14 @@
 				CF4094D82450804900487DC7 /* CreateAlarmViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CF4094DC24508CC000487DC7 /* AlarmModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF4094DA24508CB900487DC7 /* AlarmModel.swift */,
+			);
+			path = AlarmModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF4094DB24508CB900487DC7 /* AlarmModel.swift in Sources */,
 				CF4094C824507D5D00487DC7 /* AlarmListViewController.swift in Sources */,
 				CF4094C424507D5D00487DC7 /* AppDelegate.swift in Sources */,
 				CF4094C624507D5D00487DC7 /* SceneDelegate.swift in Sources */,
