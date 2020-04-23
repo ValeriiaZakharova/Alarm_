@@ -8,14 +8,13 @@
 
 import Foundation
 
-struct Alarm {
-
+struct Alarm: Codable {
     var title: String
     var time: String
-    var iterate: [DayOfTheWeek]?
+    var iterate: [DayOfTheWeek]
 }
 
-enum DayOfTheWeek: String {
+enum DayOfTheWeek: String, Codable {
     case monday
     case tuesday
     case wednesday
@@ -23,4 +22,17 @@ enum DayOfTheWeek: String {
     case friday
     case saturday
     case sunday
+    
+    func shortName() -> String {
+        switch self {
+        case .monday: return "Mn"
+        case .tuesday: return "Tu"
+        case .wednesday: return "Wd"
+        case .thursday: return "Th"
+        case .friday: return "Fr"
+        case .saturday: return "St"
+        case .sunday: return "Sn"
+            
+        }
+    }
 }

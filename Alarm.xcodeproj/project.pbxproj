@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF3DF2A02451B28800E0F53E /* AlarmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3DF29F2451B28800E0F53E /* AlarmStorage.swift */; };
+		CF3DF2A22451F67500E0F53E /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3DF2A12451F67500E0F53E /* AlarmCell.swift */; };
 		CF4094C424507D5D00487DC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4094C324507D5D00487DC7 /* AppDelegate.swift */; };
 		CF4094C624507D5D00487DC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4094C524507D5D00487DC7 /* SceneDelegate.swift */; };
 		CF4094C824507D5D00487DC7 /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4094C724507D5D00487DC7 /* AlarmListViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		CF3DF29F2451B28800E0F53E /* AlarmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStorage.swift; sourceTree = "<group>"; };
+		CF3DF2A12451F67500E0F53E /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		CF4094C024507D5D00487DC7 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF4094C324507D5D00487DC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF4094C524507D5D00487DC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				CF4094C724507D5D00487DC7 /* AlarmListViewController.swift */,
 				CF4094D82450804900487DC7 /* CreateAlarmViewController.swift */,
+				CF3DF2A12451F67500E0F53E /* AlarmCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				CF4094DB24508CB900487DC7 /* AlarmModel.swift in Sources */,
 				CF4094C824507D5D00487DC7 /* AlarmListViewController.swift in Sources */,
 				CF4094C424507D5D00487DC7 /* AppDelegate.swift in Sources */,
+				CF3DF2A22451F67500E0F53E /* AlarmCell.swift in Sources */,
 				CF4094C624507D5D00487DC7 /* SceneDelegate.swift in Sources */,
 				CF4094D92450804900487DC7 /* CreateAlarmViewController.swift in Sources */,
 				CF3DF2A02451B28800E0F53E /* AlarmStorage.swift in Sources */,

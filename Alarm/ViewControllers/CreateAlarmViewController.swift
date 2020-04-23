@@ -18,9 +18,12 @@ class CreateAlarmViewController: UIViewController {
     
     var alarmsStorage: AlarmStorage?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+       // alarmsStorage?.getAlarms() = defaults.array(forKey: "AlarmsStorage") as! [Alarm]
+        
         setUpTimePicker()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -28,6 +31,7 @@ class CreateAlarmViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
+
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -37,25 +41,22 @@ class CreateAlarmViewController: UIViewController {
             return
         }
         
-        let newAlarm = Alarm(title: title, time: time)
-        alarmsStorage?.addalarm(newAlarm)
-        
+        let newAlarm = Alarm(title: title, time: time, iterate: [])
+        alarmsStorage?.add(alarm: newAlarm)
+    
         dismiss(animated: true, completion: nil)
     
     }
     
-    @objc func viewTapped(gesture: UITapGestureRecognizer) {
-        view.endEditing(true)
+    @IBAction func daySelected(_ sender: UIButton) {
+        
+        
     }
     
-    func setUpTimePicker() {
-        
-        timePicker = UIDatePicker()
-        timePicker?.datePickerMode = .time
-        
-        timePicker?.addTarget(self, action: #selector(timeChanged(timePicker:)), for: .valueChanged)
-        
-        timeTextField.inputView = timePicker
+    
+    
+    @objc func viewTapped(gesture: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @objc func timeChanged(timePicker: UIDatePicker) {
@@ -66,6 +67,17 @@ class CreateAlarmViewController: UIViewController {
         timeTextField.text = timeFormatter.string(from: timePicker.date)
         view.endEditing(true)
     }
+    
+    private func setUpTimePicker() {
+        
+        timePicker = UIDatePicker()
+        timePicker?.datePickerMode = .time
+        
+        timePicker?.addTarget(self, action: #selector(timeChanged(timePicker:)), for: .valueChanged)
+        
+        timeTextField.inputView = timePicker
+    }
+
     
     func showAlert() {
         let alertController = UIAlertController(title: nil, message: "Please fill all fields", preferredStyle: .alert)
