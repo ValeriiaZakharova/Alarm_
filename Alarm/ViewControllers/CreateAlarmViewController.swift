@@ -16,6 +16,7 @@ class CreateAlarmViewController: UIViewController {
     
     private var timePicker: UIDatePicker?
     
+    var alarmsStorage: AlarmStorage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +28,20 @@ class CreateAlarmViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        // save a new alarm here
+        guard let time = timeTextField.text, let title = titleTextField.text else {
+            return
+        }
         
+        let newAlarm = Alarm(title: title, time: time)
+        alarmsStorage?.addalarm(newAlarm)
+        
+        dismiss(animated: true, completion: nil)
+    
     }
     
     @objc func viewTapped(gesture: UITapGestureRecognizer) {
@@ -58,6 +65,13 @@ class CreateAlarmViewController: UIViewController {
         //timeFormatter.dateFormat = "HH:mm"
         timeTextField.text = timeFormatter.string(from: timePicker.date)
         view.endEditing(true)
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: nil, message: "Please fill all fields", preferredStyle: .alert)
+        let okAction = UIAlertAction.init(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 
 }

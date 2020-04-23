@@ -11,5 +11,16 @@ import Foundation
 struct Alarm {
 
     var title: String
-    
+    var time: String
+    var iterate: [DayOfTheWeek]?
+}
+
+enum DayOfTheWeek: String {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
+    case sunday
 }
