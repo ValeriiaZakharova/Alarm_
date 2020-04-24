@@ -39,19 +39,19 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="295" height="23"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Title&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3P-mj-2EG">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="195" height="23"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="23"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="8LQ-SJ-6qc"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Time&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k61-oQ-qAo">
-                                                                    <rect key="frame" x="215" y="0.0" width="80" height="23"/>
+                                                                    <rect key="frame" x="195" y="0.0" width="100" height="23"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="dVY-UA-oB3"/>
-                                                                        <constraint firstAttribute="width" constant="80" id="kCH-rl-fzl"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="kCH-rl-fzl"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                     <nil key="textColor"/>
@@ -64,7 +64,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="bST-35-o0J"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -153,7 +153,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qvC-D4-9ag">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qvC-D4-9ag">
                                 <rect key="frame" x="80" y="108" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -168,6 +168,8 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Z1-zR-402">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" red="0.65237050513698636" green="0.78882369731506841" blue="0.96380029965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.65237050510000005" green="0.78882369730000002" blue="0.96380029970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Mn">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -177,6 +179,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOJ-yz-kbC">
                                         <rect key="frame" x="54" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" red="0.65237050513698636" green="0.78882369731506841" blue="0.96380029965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.65237050510000005" green="0.78882369730000002" blue="0.96380029970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Tu">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -186,6 +190,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXW-cm-mlB">
                                         <rect key="frame" x="108" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" red="0.65237050513698636" green="0.78882369731506841" blue="0.96380029965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.65237050510000005" green="0.78882369730000002" blue="0.96380029970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Wd">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -195,6 +201,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnQ-ee-Lnq">
                                         <rect key="frame" x="162" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" red="0.65237050513698636" green="0.78882369731506841" blue="0.96380029965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.65237050510000005" green="0.78882369730000002" blue="0.96380029970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Th">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -204,6 +212,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wuy-FE-Z2G">
                                         <rect key="frame" x="216" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" red="0.65237050513698636" green="0.78882369731506841" blue="0.96380029965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.65237050510000005" green="0.78882369730000002" blue="0.96380029970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Fr">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -213,15 +223,19 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsx-ku-80G">
                                         <rect key="frame" x="270" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" red="0.65237050513698636" green="0.78882369731506841" blue="0.96380029965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.65237050510000005" green="0.78882369730000002" blue="0.96380029970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="St">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="daySelected:" destination="4WD-gG-QpZ" eventType="touchUpInside" id="mYx-sj-qsV"/>
+                                            <action selector="daySelected:" destination="4WD-gG-QpZ" eventType="touchUpInside" id="qRb-q5-73e"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXQ-9C-Ssm">
                                         <rect key="frame" x="324" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" red="0.65237050513698636" green="0.78882369731506841" blue="0.96380029965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.65237050510000005" green="0.78882369730000002" blue="0.96380029970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Sn">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -267,8 +281,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="friday" destination="wuy-FE-Z2G" id="f5g-fS-6d4"/>
+                        <outlet property="monday" destination="9Z1-zR-402" id="XbE-rw-9U8"/>
+                        <outlet property="saturday" destination="tsx-ku-80G" id="JR8-fq-IDf"/>
+                        <outlet property="sunday" destination="CXQ-9C-Ssm" id="QHO-cE-0YO"/>
+                        <outlet property="thursday" destination="GnQ-ee-Lnq" id="enq-4r-gh1"/>
                         <outlet property="timeTextField" destination="zpm-Ln-ovi" id="UpA-sR-it7"/>
                         <outlet property="titleTextField" destination="qvC-D4-9ag" id="i06-n3-ddz"/>
+                        <outlet property="tuesday" destination="aOJ-yz-kbC" id="XY4-Ad-ukW"/>
+                        <outlet property="wednesday" destination="hXW-cm-mlB" id="WVS-fl-kZ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jZ-GH-uB2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

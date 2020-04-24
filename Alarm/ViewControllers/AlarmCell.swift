@@ -16,7 +16,6 @@ class AlarmCell: UITableViewCell {
     
     @IBOutlet weak var daysLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
        
@@ -27,15 +26,11 @@ class AlarmCell: UITableViewCell {
         timeLabel.text = model.time
         daysLabel.text = model.iterate.map({ (day) -> String in
             day.shortName()
-            }).joined(separator: " ")
+        }).joined(separator: " ")
         
     }
 
     @IBAction func toggleTapped(_ sender: UISwitch) {
         
-        
     }
-    
-    
-    
 }

@@ -12,52 +12,66 @@ class AlarmListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var alarmsStorage = AlarmStorage(UserDefaults.standard)
+    private let alarmsStorage = AlarmStorage(UserDefaults.standard)
+    
+    private var alarms: [Alarm] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-
+        reloadList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tableView.reloadData()
-        
+        reloadList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nc = segue.destination as! UINavigationController
         let vc = nc.topViewController as! CreateAlarmViewController
         vc.alarmsStorage = alarmsStorage
-        
-        
+    }
+    
+    private func reloadList() {
+        alarmsStorage.fetchAlarms(callback: { [weak self] alarms in
+            guard let self = self else { return }
+            self.alarms = alarms
+            self.tableView.reloadData()
+        })
     }
 
     @IBAction func createTapped(_ sender: Any) {
-        
 //        let vc = CreateAlarmViewController()
 //        vc.alarmsStorage = alarmsStorage
 //        let nc = UINavigationController(rootViewController: vc)
 //        self.present(nc, animated: true, completion: nil)
-        
     }
-    
 }
+
+//MARK: - TableViewDataSource, TableViewDelegate Methods
 
 extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return alarmsStorage.getAlarms().count
+        return alarms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmCell", for: indexPath) as! AlarmCell
         
-        cell.updateCell(model: alarmsStorage.getAlarms()[indexPath.row])
+        cell.updateCell(model: alarms[indexPath.row])
 
         return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        let alarm = alarms[indexPath.row]
+        
+        if editingStyle == .delete {
+            alarmsStorage.remove(alarm: alarm)
+            reloadList()
+        }
+    }
 }

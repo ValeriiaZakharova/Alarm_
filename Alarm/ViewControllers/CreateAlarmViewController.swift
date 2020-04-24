@@ -14,16 +14,29 @@ class CreateAlarmViewController: UIViewController {
     
     @IBOutlet weak var timeTextField: UITextField!
     
+    @IBOutlet weak var monday: UIButton!
+    
+    @IBOutlet weak var tuesday: UIButton!
+    
+    @IBOutlet weak var wednesday: UIButton!
+    
+    @IBOutlet weak var thursday: UIButton!
+    
+    @IBOutlet weak var friday: UIButton!
+    
+    @IBOutlet weak var saturday: UIButton!
+    
+    @IBOutlet weak var sunday: UIButton!
+    
     private var timePicker: UIDatePicker?
     
     var alarmsStorage: AlarmStorage?
     
+    //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       // alarmsStorage?.getAlarms() = defaults.array(forKey: "AlarmsStorage") as! [Alarm]
-        
         setUpTimePicker()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -41,19 +54,49 @@ class CreateAlarmViewController: UIViewController {
             return
         }
         
-        let newAlarm = Alarm(title: title, time: time, iterate: [])
-        alarmsStorage?.add(alarm: newAlarm)
-    
-        dismiss(animated: true, completion: nil)
-    
+        if time != "", title != "" {
+             var days: [DayOfTheWeek] = []
+             
+             if monday.isSelected {
+                 days.append(.monday)
+               }
+             if tuesday.isSelected {
+                 days.append(.tuesday)
+             }
+             if wednesday.isSelected {
+                 days.append(.wednesday)
+             }
+             if thursday.isSelected {
+                 days.append(.thursday)
+             }
+             if friday.isSelected {
+                 days.append(.friday)
+             }
+             if saturday.isSelected {
+                 days.append(.saturday)
+             }
+             if sunday.isSelected {
+                 days.append(.sunday)
+             }
+            
+            let newAlarm = Alarm(title: title, time: time, iterate: days)
+             
+            alarmsStorage?.add(alarm: newAlarm)
+            
+            dismiss(animated: true, completion: nil)
+        } else {
+            showAlert()
+        }
     }
     
     @IBAction func daySelected(_ sender: UIButton) {
-        
-        
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            sender.alpha = 0.5
+        } else {
+            sender.alpha = 1
+        }
     }
-    
-    
     
     @objc func viewTapped(gesture: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -68,6 +111,8 @@ class CreateAlarmViewController: UIViewController {
         view.endEditing(true)
     }
     
+   //MARK: - Picker
+    
     private func setUpTimePicker() {
         
         timePicker = UIDatePicker()
@@ -77,7 +122,8 @@ class CreateAlarmViewController: UIViewController {
         
         timeTextField.inputView = timePicker
     }
-
+    
+    //MARK: - Alert
     
     func showAlert() {
         let alertController = UIAlertController(title: nil, message: "Please fill all fields", preferredStyle: .alert)
@@ -85,5 +131,4 @@ class CreateAlarmViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-
 }

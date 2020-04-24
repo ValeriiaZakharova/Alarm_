@@ -12,6 +12,9 @@ struct Alarm: Codable {
     var title: String
     var time: String
     var iterate: [DayOfTheWeek]
+    
+    /// unique id to differ alarms
+    let identifier = Int.random(in: 0..<999999) // randmo between 0 and 1 million
 }
 
 enum DayOfTheWeek: String, Codable {
