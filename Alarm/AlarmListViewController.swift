@@ -14,7 +14,7 @@ class AlarmListViewController: UIViewController {
     
     private let alarmsStorage = AlarmStorage(UserDefaults.standard)
     
-    private let alarmsManager = AlarmNotificationManager()
+    private let alarmsManager = AlarmNotificationManager() //i changed it to var
     
     private var alarms: [Alarm] = []
     
@@ -77,8 +77,14 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource {
         
         if editingStyle == .delete {
             alarmsStorage.remove(alarm: alarm)
+            alarmsManager.turnOff(alarm: alarm)
+            print("\(alarm.title) has been deleted")
             reloadList()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

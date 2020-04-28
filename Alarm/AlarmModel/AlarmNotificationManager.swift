@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//facade
+
 class AlarmNotificationManager {
     
     func scheduleRequest(for alarm: Alarm) {
@@ -23,6 +23,8 @@ class AlarmNotificationManager {
         content.sound = UNNotificationSound.default
         
         let dateComponents: DateComponents = Calendar.current.dateComponents([.hour, .minute], from: alarm.time)
+    
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: alarm.identifier.uuidString, content: content, trigger: trigger)
 
@@ -30,28 +32,14 @@ class AlarmNotificationManager {
     }
     
     func turnOff(alarm: Alarm) {
-//        let center = UNUserNotificationCenter.current()
-//        center.removePendingNotificationRequests(withIdentifiers: [alarm.identifier.uuidString])
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [alarm.identifier.uuidString])
         print("Turning off alarm: \(alarm.title)")
-//        let content = UNMutableNotificationContent()
-//        content.title = alarm.title // "Wake up"
-//        content.body = "don't sleep"
-//        content.categoryIdentifier = "alarm"
-//        content.userInfo = ["alarmData": "bzzzz"]
-//        content.sound = UNNotificationSound.default
 
-//        guard let time = timePicker else { return }
-//        let dateComponents = time.calendar.dateComponents([.hour, .minute], from: Date())
-//
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-//
-//        let request = UNNotificationRequest(identifier: alarm.identifier.uuidString, content: content, trigger: trigger)
-//
-//        center.add(request)
     }
     
     func turnOn(alarm: Alarm) {
         print("Turning on alarm: \(alarm.title)")
-        
+        self.scheduleRequest(for: alarm)
     }
 }
