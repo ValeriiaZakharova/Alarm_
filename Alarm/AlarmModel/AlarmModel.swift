@@ -10,11 +10,13 @@ import Foundation
 
 struct Alarm: Codable {
     var title: String
-    var time: String
+    var time: Date
     var iterate: [DayOfTheWeek]
     
+    var isEnabled = true
+    
     /// unique id to differ alarms
-    let identifier = Int.random(in: 0..<999999) // randmo between 0 and 1 million
+    let identifier = UUID()
 }
 
 enum DayOfTheWeek: String, Codable {

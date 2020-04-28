@@ -7,6 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+
+/// CRUD
+///
+/// - Create - `addAlarm`
+/// - Read - `fetchAlarms`
+/// - Update -
+/// - Delete `removeAlarm`
+///
 
 class AlarmStorage {
     
@@ -22,14 +32,30 @@ class AlarmStorage {
         self.defaults = defaults
         if let data = defaults.object(forKey: "com.lera.storage.alarms") as? Data {
             let decoder = JSONDecoder()
-            if let loadedAlarms = try? decoder.decode(Array<Alarm>.self, from: data) {
+            do {
+                let loadedAlarms = try decoder.decode(Array<Alarm>.self, from: data)
                 alarms = loadedAlarms
+            } catch {
+                print("Failed restoring old alarm storage: \(error)")
             }
         }
     }
     
     func add(alarm: Alarm) {
         alarms.append(alarm)
+    }
+    
+    func update(alarm: Alarm) {
+        /// find index of parameter `alarm`
+        let alarmIndex = alarms.firstIndex(where: { internalAlarm -> Bool in
+            return internalAlarm.identifier == alarm.identifier
+        })
+        
+        guard let index = alarmIndex else {
+            assertionFailure("There is no such alarm in storage: \(alarm.title)")
+            return
+        }
+        alarms[index] = alarm
     }
     
     /// request to local storage to get all alarms
@@ -64,3 +90,6 @@ class AlarmStorage {
         }
     }
 }
+
+
+

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AlarmCellDelegate: class {
+    func toggleTapped(cell: AlarmCell)
+}
+
 class AlarmCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
@@ -16,21 +20,28 @@ class AlarmCell: UITableViewCell {
     
     @IBOutlet weak var daysLabel: UILabel!
     
+    @IBOutlet weak var toggle: UISwitch!
+    
+    weak var delegate: AlarmCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
        
     }
     
-    func updateCell(model: Alarm) {
-        titleLabel.text = model.title
-        timeLabel.text = model.time
-        daysLabel.text = model.iterate.map({ (day) -> String in
+    func updateCell(alarm: Alarm) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        
+        titleLabel.text = alarm.title
+        timeLabel.text = dateFormatter.string(from: alarm.time)
+        daysLabel.text = alarm.iterate.map({ (day) -> String in
             day.shortName()
         }).joined(separator: " ")
-        
+        toggle.isOn = alarm.isEnabled
     }
 
     @IBAction func toggleTapped(_ sender: UISwitch) {
-        
+        delegate?.toggleTapped(cell: self)
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class CreateAlarmViewController: UIViewController {
-
+    
     @IBOutlet weak var titleTextField: UITextField!
     
     @IBOutlet weak var timeTextField: UITextField!
@@ -32,11 +32,13 @@ class CreateAlarmViewController: UIViewController {
     
     var alarmsStorage: AlarmStorage?
     
+    var alarmManager: AlarmNotificationManager?
+    
     //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpTimePicker()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -44,49 +46,55 @@ class CreateAlarmViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-
+        
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        guard let time = timeTextField.text, let title = titleTextField.text else {
-            return
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        
+        guard
+            let timeText = timeTextField.text,
+            let time = timeFormatter.date(from: timeText),
+            let title = titleTextField.text,
+            title.count > 0
+            else {
+                showAlert()
+                return
         }
         
-        if time != "", title != "" {
-             var days: [DayOfTheWeek] = []
-             
-             if monday.isSelected {
-                 days.append(.monday)
-               }
-             if tuesday.isSelected {
-                 days.append(.tuesday)
-             }
-             if wednesday.isSelected {
-                 days.append(.wednesday)
-             }
-             if thursday.isSelected {
-                 days.append(.thursday)
-             }
-             if friday.isSelected {
-                 days.append(.friday)
-             }
-             if saturday.isSelected {
-                 days.append(.saturday)
-             }
-             if sunday.isSelected {
-                 days.append(.sunday)
-             }
-            
-            let newAlarm = Alarm(title: title, time: time, iterate: days)
-             
-            alarmsStorage?.add(alarm: newAlarm)
-            
-            dismiss(animated: true, completion: nil)
-        } else {
-            showAlert()
+        var days: [DayOfTheWeek] = []
+        
+        if monday.isSelected {
+            days.append(.monday)
         }
+        if tuesday.isSelected {
+            days.append(.tuesday)
+        }
+        if wednesday.isSelected {
+            days.append(.wednesday)
+        }
+        if thursday.isSelected {
+            days.append(.thursday)
+        }
+        if friday.isSelected {
+            days.append(.friday)
+        }
+        if saturday.isSelected {
+            days.append(.saturday)
+        }
+        if sunday.isSelected {
+            days.append(.sunday)
+        }
+        
+        let newAlarm = Alarm(title: title, time: time, iterate: days)
+        
+        alarmsStorage?.add(alarm: newAlarm)
+        alarmManager?.scheduleRequest(for: newAlarm)
+        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func daySelected(_ sender: UIButton) {
@@ -111,7 +119,7 @@ class CreateAlarmViewController: UIViewController {
         view.endEditing(true)
     }
     
-   //MARK: - Picker
+    //MARK: - Picker
     
     private func setUpTimePicker() {
         

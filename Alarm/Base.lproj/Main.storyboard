@@ -90,6 +90,7 @@
                                             <outlet property="daysLabel" destination="yGL-P1-9Pn" id="Eif-yb-yug"/>
                                             <outlet property="timeLabel" destination="k61-oQ-qAo" id="jUM-QN-9JL"/>
                                             <outlet property="titleLabel" destination="J3P-mj-2EG" id="gcj-r6-dqj"/>
+                                            <outlet property="toggle" destination="FAM-xO-y5F" id="J8N-ZG-LGg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
