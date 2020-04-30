@@ -12,9 +12,8 @@ class AlarmListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let alarmsStorage = AlarmStorage(UserDefaults.standard)
-    
-    private let alarmsManager = AlarmNotificationManager() //i changed it to var
+    private let alarmService = AlarmsService(alarmStorage: AlarmStorage(UserDefaults.standard),
+                                             alarmNotificationManager: AlarmNotificationManager())
     
     private var alarms: [Alarm] = []
     
@@ -27,18 +26,16 @@ class AlarmListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadList()
-        //alarmNotification()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nc = segue.destination as! UINavigationController
         let vc = nc.topViewController as! CreateAlarmViewController
-        vc.alarmsStorage = alarmsStorage
-        vc.alarmManager = alarmsManager
+        vc.alarmService = alarmService
     }
     
     private func reloadList() {
-        alarmsStorage.fetchAlarms(callback: { [weak self] alarms in
+        alarmService.fetchAlarms(callback: { [weak self] alarms in
             guard let self = self else { return }
             self.alarms = alarms
             self.tableView.reloadData()
@@ -76,8 +73,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource {
         let alarm = alarms[indexPath.row]
         
         if editingStyle == .delete {
-            alarmsStorage.remove(alarm: alarm)
-            alarmsManager.turnOff(alarm: alarm)
+            alarmService.remove(alarm: alarm)
             print("\(alarm.title) has been deleted")
             reloadList()
         }
@@ -95,16 +91,14 @@ extension AlarmListViewController: AlarmCellDelegate {
     func toggleTapped(cell: AlarmCell) {
         
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        var alarm = alarms[indexPath.row]
+        let alarm = alarms[indexPath.row]
         
         if cell.toggle.isOn {
-            alarmsManager.turnOn(alarm: alarm)
-            alarm.isEnabled = true
-            alarmsStorage.update(alarm: alarm)
+            alarmService.turnOn(alarm: alarm)
+            reloadList()
         } else {
-            alarmsManager.turnOff(alarm: alarm)
-            alarm.isEnabled = false
-            alarmsStorage.update(alarm: alarm)
+            alarmService.turnOff(alarm: alarm)
+            reloadList()
         }
     }
 }

@@ -46,15 +46,7 @@ class AlarmStorage {
     }
     
     func update(alarm: Alarm) {
-        /// find index of parameter `alarm`
-        let alarmIndex = alarms.firstIndex(where: { internalAlarm -> Bool in
-            return internalAlarm.identifier == alarm.identifier
-        })
-        
-        guard let index = alarmIndex else {
-            assertionFailure("There is no such alarm in storage: \(alarm.title)")
-            return
-        }
+        guard let index = findAlarmIndex(identifier: alarm.identifier) else { return }
         alarms[index] = alarm
     }
     
@@ -71,16 +63,22 @@ class AlarmStorage {
     }
     
     func remove(alarm: Alarm) {
+        guard let index = findAlarmIndex(identifier: alarm.identifier) else { return }
+        alarms.remove(at: index)
+    }
+    
+    func findAlarm(identifier: UUID) -> Alarm? {
+        guard let index = findAlarmIndex(identifier: identifier) else { return nil }
+        return alarms[index]
+    }
+    
+    func findAlarmIndex(identifier: UUID) -> Int? {
         /// find index of parameter `alarm`
         let alarmIndex = alarms.firstIndex(where: { internalAlarm -> Bool in
-            return internalAlarm.identifier == alarm.identifier
+            return internalAlarm.identifier == identifier
         })
         
-        guard let index = alarmIndex else {
-            assertionFailure("There is no such alarm in storage: \(alarm.title)")
-            return
-        }
-        alarms.remove(at: index)
+        return alarmIndex
     }
     
     func saveStorage() {

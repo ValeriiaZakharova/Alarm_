@@ -10,7 +10,17 @@ import UIKit
 
 class AlarmNotificationManager {
     
-    func scheduleRequest(for alarm: Alarm) {
+    func turnOff(alarm: Alarm) {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [alarm.identifier.uuidString])
+    }
+    
+    func turnOn(alarm: Alarm) {
+        print("Turning on alarm: \(alarm.title)")
+        self.scheduleRequest(for: alarm)
+    }
+    
+    private func scheduleRequest(for alarm: Alarm) {
         
         print("alarm has been scheduled: \(alarm.title)")
         let center = UNUserNotificationCenter.current()
@@ -29,17 +39,5 @@ class AlarmNotificationManager {
         let request = UNNotificationRequest(identifier: alarm.identifier.uuidString, content: content, trigger: trigger)
 
         center.add(request)
-    }
-    
-    func turnOff(alarm: Alarm) {
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: [alarm.identifier.uuidString])
-        print("Turning off alarm: \(alarm.title)")
-
-    }
-    
-    func turnOn(alarm: Alarm) {
-        print("Turning on alarm: \(alarm.title)")
-        self.scheduleRequest(for: alarm)
     }
 }

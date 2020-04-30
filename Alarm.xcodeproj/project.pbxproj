@@ -18,6 +18,7 @@
 		CF4094D024507D6000487DC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF4094CE24507D6000487DC7 /* LaunchScreen.storyboard */; };
 		CF4094D92450804900487DC7 /* CreateAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4094D82450804900487DC7 /* CreateAlarmViewController.swift */; };
 		CF4094DB24508CB900487DC7 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4094DA24508CB900487DC7 /* AlarmModel.swift */; };
+		CF8DCCAE2459EB70009DB49C /* AlarmsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8DCCAD2459EB70009DB49C /* AlarmsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CF4094D124507D6000487DC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF4094D82450804900487DC7 /* CreateAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlarmViewController.swift; sourceTree = "<group>"; };
 		CF4094DA24508CB900487DC7 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
+		CF8DCCAD2459EB70009DB49C /* AlarmsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		CF4094C224507D5D00487DC7 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				CF8DCCAC2459EB2D009DB49C /* Services */,
 				CF4094C324507D5D00487DC7 /* AppDelegate.swift */,
 				CF4094C524507D5D00487DC7 /* SceneDelegate.swift */,
 				CF4094DC24508CC000487DC7 /* AlarmModel */,
@@ -92,10 +95,18 @@
 			isa = PBXGroup;
 			children = (
 				CF4094DA24508CB900487DC7 /* AlarmModel.swift */,
-				CF3DF29F2451B28800E0F53E /* AlarmStorage.swift */,
-				CF3DF2A32456D18800E0F53E /* AlarmNotificationManager.swift */,
 			);
 			path = AlarmModel;
+			sourceTree = "<group>";
+		};
+		CF8DCCAC2459EB2D009DB49C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CF3DF29F2451B28800E0F53E /* AlarmStorage.swift */,
+				CF3DF2A32456D18800E0F53E /* AlarmNotificationManager.swift */,
+				CF8DCCAD2459EB70009DB49C /* AlarmsService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 				CF4094DB24508CB900487DC7 /* AlarmModel.swift in Sources */,
 				CF4094C824507D5D00487DC7 /* AlarmListViewController.swift in Sources */,
 				CF4094C424507D5D00487DC7 /* AppDelegate.swift in Sources */,
+				CF8DCCAE2459EB70009DB49C /* AlarmsService.swift in Sources */,
 				CF3DF2A22451F67500E0F53E /* AlarmCell.swift in Sources */,
 				CF4094C624507D5D00487DC7 /* SceneDelegate.swift in Sources */,
 				CF4094D92450804900487DC7 /* CreateAlarmViewController.swift in Sources */,

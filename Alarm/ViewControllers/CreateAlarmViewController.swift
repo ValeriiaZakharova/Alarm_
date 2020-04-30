@@ -30,9 +30,7 @@ class CreateAlarmViewController: UIViewController {
     
     private var timePicker: UIDatePicker?
     
-    var alarmsStorage: AlarmStorage?
-    
-    var alarmManager: AlarmNotificationManager?
+    var alarmService: AlarmsService!
     
     //MARK: - ViewDidLoad
     
@@ -91,8 +89,7 @@ class CreateAlarmViewController: UIViewController {
         
         let newAlarm = Alarm(title: title, time: time, iterate: days)
         
-        alarmsStorage?.add(alarm: newAlarm)
-        alarmManager?.scheduleRequest(for: newAlarm)
+        alarmService.create(alarm: newAlarm)
         
         dismiss(animated: true, completion: nil)
     }
